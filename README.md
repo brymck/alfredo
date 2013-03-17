@@ -5,8 +5,13 @@ Alfredo is a gem providing a handful of utility methods to help out with Alfred
 
 ## Installation
 
+Until it's worthy of uploading to RubyGems:
+
 ```zsh
-gem install alfredo
+git https://github.com/brymck/alfredo.git
+cd alfredo
+bundle update
+rake install
 ```
 
 ## Usage

@@ -1,13 +1,15 @@
+require "nokogiri"
+
 module Alfredo
   class Item
     attr_reader :uid, :arg, :autocomplete, :title, :subtitle
 
-    def initialize(opts = {})
-      @uid          = opts[:uid]
-      @arg          = opts[:arg]          || opts[:uid]
-      @autocomplete = opts[:autocomplete] || opts[:uid]
-      @title        = opts[:title]
-      @subtitle     = opts[:subtitle]
+    def initialize(uid: nil, arg: nil, autocomplete: nil, title: nil, subtitle: nil)
+      @uid          = uid
+      @arg          = arg          || uid
+      @autocomplete = autocomplete || uid
+      @title        = title
+      @subtitle     = subtitle
     end
 
     def build_xml(parent)

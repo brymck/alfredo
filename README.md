@@ -18,14 +18,33 @@ rake install
 
 Alfred 2 defaults to using the system Ruby. Rather than replace that with a
 symlink to your preferred Ruby, it probably makes more sense to put something
-like this in your Script Filter or Run Script workflow element:
+like this in your Script Filter workflow element:
 
 ```zsh
 /usr/bin/env ruby <my_script>.rb "{query}"
 ```
 
-The rest of the documentation is under construction while I actually make sense
-of things.
+In that script, you could have something like the following, which would list
+all projects in your ~/Projects directory:
+
+```ruby
+require "alfredo"
+
+Dir.chdir File.join(ENV["HOME"], "Projects")
+query = ARGV.first
+@manager = Alfredo::ItemManager.new
+
+Dir.glob("#{query}*").each do |dir|
+  @manager << Alfredo::Item.new(
+    uid:      dir,
+    arg:      File.expand_path(dir),
+    title:    "Open #{dir}"
+    subtitle: "Open in Vim"
+  )
+end
+
+puts @manager.to_xml
+```
 
 ## Contributing
 

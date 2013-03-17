@@ -3,8 +3,8 @@ require_relative "spec_helper"
 describe Settings do
   before :each do
     yaml = <<-END.strip_heredoc
-    ---
-    :location: "Charlotte"
+      ---
+      :location: "Charlotte"
     END
 
     YAML.stub(:load_file) { YAML.load(yaml) }

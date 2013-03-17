@@ -38,7 +38,7 @@ Dir.glob("#{query}*").each do |dir|
   @manager << Alfredo::Item.new(
     uid:      dir,
     arg:      File.expand_path(dir),
-    title:    "Open #{dir}"
+    title:    "Open #{dir}",
     subtitle: "Open in Vim"
   )
 end

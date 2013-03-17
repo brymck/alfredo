@@ -8,7 +8,7 @@ Alfredo is a gem providing a handful of utility methods to help out with Alfred
 Until it's worthy of uploading to RubyGems:
 
 ```zsh
-git https://github.com/brymck/alfredo.git
+git clone https://github.com/brymck/alfredo.git
 cd alfredo
 bundle update
 rake install
